@@ -1,3 +1,5 @@
 https://shorifulrobin.me/*   https://www.shorifulrobin.me/:splat   301!
 /thank-you.html   /thank-you.html   200
 
+
+
