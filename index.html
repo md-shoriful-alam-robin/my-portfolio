@@ -397,41 +397,43 @@
   
   <!-- Contact -->
   <section id="contact">
-  <h2>Contact Me</h2>
-  <p>Have a project or question? Get in touch!</p>
-  <p>Email: <a href="mailto:contact@shorifulrobin.me">contact@shorifulrobin.me</a></p>
-  <p>Phone: <a href="tel:+8801710210006">+8801710210006</a></p>
+    <h2>Contact Me</h2>
+    <p>Have a project or question? Get in touch!</p>
+    <p>Email: <a href="mailto:contact@shorifulrobin.me">contact@shorifulrobin.me</a></p>
+    <p>Phone: <a href="tel:+8801710210006">+8801710210006</a></p>
+    
+    <div style="text-align:center; margin-top: 25px;">
+      <button class="cta-button" id="toggleContactForm" aria-expanded="false" aria-controls="contactForm">Contact Me</button>
+    </div>
 
-  <div style="text-align:center; margin-top: 25px;">
-    <button class="cta-button" id="toggleContactForm" aria-expanded="false" aria-controls="contactForm">Contact Me</button>
-  </div>
+    <form id="contactForm" name="contact" method="POST" action="/thank-you" data-netlify="true" netlify-honeypot="bot-field">
+  <!-- Honeypot field for spam protection -->
+  <input type="hidden" name="form-name" value="contact" />
+  <p style="display:none;">
+    <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+  </p>
 
-  <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="display:none;">
-    <input type="hidden" name="form-name" value="contact" />
-    <p style="display:none;">
-      <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
-    </p>
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name" required />
 
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" required />
+  <label for="email">Email</label>
+  <input type="email" id="email" name="email" required />
 
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" required />
+  <label for="message">Message</label>
+  <textarea id="message" name="message" rows="5" required></textarea>
 
-    <label for="message">Message</label>
-    <textarea id="message" name="message" rows="5" required></textarea>
+  <button type="submit">Send Message</button>
+</form>
 
-    <button type="submit">Send Message</button>
-  </form>
 
-  <!-- Social Media Links -->
-  <div class="social-links">
-    <a href="https://www.facebook.com/md.shoriful.alam.robin" target="_blank" aria-label="Facebook" rel="noopener noreferrer">Facebook</a>
-    <a href="https://x.com/RobinIdea" target="_blank" aria-label="X (formerly Twitter)" rel="noopener noreferrer">X</a>
-    <a href="https://www.instagram.com/md_shoriful_alam_robin" target="_blank" aria-label="Instagram" rel="noopener noreferrer">Instagram</a>
-    <a href="https://www.linkedin.com/in/md-shoriful-alam-robin" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer">LinkedIn</a>
-  </div>
-</section>
+    <!-- Social Media Links -->
+    <div class="social-links">
+      <a href="https://www.facebook.com/md.shoriful.alam.robin" target="_blank" aria-label="Facebook" rel="noopener noreferrer">Facebook</a>
+      <a href="https://x.com/RobinIdea" target="_blank" aria-label="X (formerly Twitter)" rel="noopener noreferrer">X</a>
+      <a href="https://www.instagram.com/md_shoriful_alam_robin" target="_blank" aria-label="Instagram" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.linkedin.com/in/md-shoriful-alam-robin" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+  </section>
   
   <footer>
     &copy; 2025 MD SHORIFUL ALAM ROBIN. All rights reserved.
