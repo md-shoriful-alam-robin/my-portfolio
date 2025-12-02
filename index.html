@@ -189,48 +189,74 @@
         font-size: 1.2rem;
       }
       /* Social links and buttons */
+      /* Container Alignment */
       .social-links,
       .buttons {
         text-align: center;
         margin-top: 30px;
       }
+
+      /* Shared Button / Link Style */
       .social-links a,
       .buttons a {
         display: inline-block;
-        margin: 12px 18px;
-        padding: 14px 28px;
-        background-color: #00aaff;
-        color: white;
-        border-radius: 8px;
-        font-weight: 700;
+        margin: 10px 15px;
+        padding: 12px 24px;
+        background: linear-gradient(
+          135deg,
+          #1e90ff,
+          #00bfff
+        ); /* subtle gradient */
+        color: #fff;
+        border-radius: 10px;
+        font-weight: 600;
         text-decoration: none;
-        font-size: 1.1rem;
-        min-width: 160px;
-        box-shadow: 0 4px 12px rgba(0, 170, 255, 0.4);
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        font-size: 1rem;
+        min-width: 150px;
+        box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3); /* soft shadow */
+        transition: all 0.3s ease;
         user-select: none;
       }
+
+      /* Hover / Focus Effects */
       .social-links a:hover,
       .buttons a:hover,
       .social-links a:focus,
       .buttons a:focus {
-        background-color: #0077cc;
-        box-shadow: 0 6px 18px rgba(0, 119, 204, 0.6);
+        background: linear-gradient(135deg, #0073e6, #005bbb);
+        box-shadow: 0 8px 20px rgba(0, 91, 187, 0.4);
+        transform: translateY(-2px); /* subtle lift */
         outline: none;
       }
+
+      /* Individual Social Links Style */
       .social-links a {
-        display: inline-block;
-        margin-right: 10px;
-        padding: 5px 10px;
-        text-decoration: none;
-        background-color: #0073e6;
-        color: white;
-        border-radius: 5px;
-        transition: background-color 0.3s;
+        margin: 8px 10px;
+        padding: 10px 16px;
+        border-radius: 8px;
+        background-color: #1c7ed6; /* subtle primary color */
+        box-shadow: 0 4px 10px rgba(28, 126, 214, 0.2);
+        font-size: 0.95rem;
       }
 
+      /* Social Link Hover */
       .social-links a:hover {
-        background-color: #005bb5;
+        background-color: #1864ab;
+        box-shadow: 0 6px 14px rgba(24, 100, 171, 0.3);
+      }
+
+      /* Optional: Add Icon inside link */
+      .social-links a i {
+        margin-right: 8px;
+        vertical-align: middle;
+      }
+
+      /* Optional: Buttons slightly different style for professional look */
+      .buttons a {
+        font-weight: 700;
+        padding: 12px 28px;
+        min-width: 160px;
+        border-radius: 12px;
       }
 
       /* Contact links styling */
@@ -294,13 +320,21 @@
       /* BTN REVIEW */
       .social-links a.btn-review,
       .buttons a.btn-review {
-        background-color: #ff6b6b; /* main button color */
+        background: linear-gradient(
+          135deg,
+          #ff6b6b,
+          #302424
+        ); /* modern gradient */
         color: #fff; /* text color */
-        padding: 10px 20px; /* button size */
-        border-radius: 5px; /* rounded corners */
+        padding: 12px 24px; /* slightly larger for modern feel */
+        border-radius: 8px; /* smoother rounded corners */
         text-decoration: none; /* remove underline */
-        font-weight: bold;
-        transition: background 0.3s; /* hover effect */
+        font-weight: 600;
+        font-size: 16px;
+        letter-spacing: 0.5px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* soft shadow */
+        transition: all 0.3s ease; /* smooth hover */
+        display: inline-block;
       }
 
       .social-links a.btn-review:hover,
