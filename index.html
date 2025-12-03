@@ -342,6 +342,24 @@
         background-color: #ff3b3b; /* hover color */
       }
 
+      .social-bar {
+        position: fixed;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        z-index: 1000;
+      }
+      .social-bar img {
+        width: 40px;
+        transition: transform 0.3s ease;
+      }
+      .social-bar img:hover {
+        transform: scale(1.2);
+      }
+
       #contactForm label {
         font-weight: 600;
         margin-bottom: 6px;
@@ -390,24 +408,86 @@
         color: black;
         transition: background-color 0.3s ease, color 0.3s ease;
         font-family: Arial, sans-serif;
+        background: var(--base-color);
+        color: var(--text-color);
       }
 
-      body.dark-mode {
-        background-color: #121212;
-        color: white;
+      /* Dark & Light Mood */
+
+      :root {
+        --base-color: #ffffff;
+        --text-color: #000000;
+        --primary-color: #3b25c1;
+        --accent-color: #2e1e94;
+        --base-variant: #f0f0f0;
+        --secondary-text: #e1e1e1;
+        --footer-color: #2e1e94;
+        --headingColor: #000000;
       }
 
-      #darkModeToggle {
-        font-size: 24px;
-        border: none;
-        background: none;
+      .header-area {
+        background-color: var(--secondary-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 50px;
+        box-shadow: var(--shadow-color);
+      }
+
+      .header-area .logo {
+        font-size: 50px;
+      }
+      .header-area .main-menu {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+      }
+
+      .header-area .main-menu ul {
+        display: flex;
+        gap: 20px;
+        list-style: none;
+      }
+      .header-area .main-menu ul li a {
+        text-decoration: none;
+        color: var(--text-color);
+        padding: 10px 20px;
+      }
+
+      .header-area .main-menu ul li a:hover {
+        background: var(--secondary-text);
+        border-radius: 10px;
+      }
+
+      .theme-switch {
         cursor: pointer;
-        margin: 20px;
-        transition: transform 0.3s ease;
       }
 
-      #darkModeToggle.animate {
-        transform: rotate(180deg);
+      .moon-icon {
+        display: block;
+        fill: #00bfa6;
+      }
+      .sun-icon {
+        display: none;
+        fill: #ffd700;
+      }
+      .darkMode .sun-icon {
+        display: block;
+        fill: #ffd700;
+      }
+      .darkMode .moon-icon {
+        display: none;
+        fill: #00bfa6;
+      }
+      .darkMode {
+        --base-color: #171717;
+        --text-color: #ffffff;
+        --primary-color: #3b25c1;
+        --accent-color: #2e1e94;
+        --base-variant: #000;
+        --shadow-color: rgba(248, 243, 243, 0.945) 0px 1px 2px 0px;
+        --footer-color: #2e1e94;
+        --headingColor: orange;
       }
 
       /* Responsive */
@@ -468,7 +548,34 @@
       <a href="#testimonials">Testimonials</a>
       <a href="#contact">Contact</a>
 
-      <button id="darkModeToggle">🌙</button>
+      <!--Dark & Light Mood-->
+      <div class="theme-switch">
+        <svg
+          class="sun-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="30px"
+          viewBox="0 -960 960 960"
+          width="30px"
+          fill="#FFFF55"
+        >
+          <path
+            d="M442.12-763.72v-162.42h75.76v162.42h-75.76Zm264.92 109.73-52.95-52.95L768.7-822.75l53.29 53.81-114.95 114.95Zm56.68 211.87v-75.76h162.42v75.76H763.72ZM442.12-33.86v-162.42h75.76v162.42h-75.76ZM252.3-654.85 137.92-768.46l53.62-53.05L306.25-706.8l-53.95 51.95ZM769.04-137.6 654.09-253.3l51.95-51.95 116.37 112.14-53.37 55.51ZM33.86-442.12v-75.76h162.42v75.76H33.86Zm158.34 304.2-53.95-53.62L252.2-305.49l27.52 25.78 27.77 26.51L192.2-137.92Zm287.72-103.67q-99.36 0-168.84-69.56-69.49-69.56-69.49-168.93 0-99.36 69.56-168.84 69.56-69.49 168.93-69.49 99.36 0 168.84 69.56 69.49 69.56 69.49 168.93 0 99.36-69.56 168.84-69.56 69.49-168.93 69.49Zm.08-75.92q67.62 0 115.13-47.44 47.52-47.43 47.52-115.05t-47.52-115.13Q547.62-642.65 480-642.65t-115.05 47.52Q317.51-547.62 317.51-480t47.44 115.05q47.43 47.44 115.05 47.44ZM480-480Z"
+          />
+        </svg>
+
+        <svg
+          class="moon-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="30px"
+          viewBox="0 -960 960 960"
+          width="30px"
+          fill="#00bfa6"
+        >
+          <path
+            d="M483.95-76.01q-84.78 0-159.01-32.32-74.22-32.31-129.26-87.35-55.04-55.04-87.35-129.26-32.32-74.23-32.32-159.01 0-148.51 95-261.41Q266-858.26 412.07-885.34q-16.32 99.13 12.04 194.44 28.36 95.3 99.76 166.61 71.08 71.31 166.34 99.5 95.25 28.19 194.81 13.2-26 145.97-139.28 240.77-113.28 94.81-261.79 94.81Zm.05-75.92q92.49 0 169.65-50.03Q730.8-252 778.23-332.35q-87.07-9.11-166.72-43.36-79.64-34.25-141.35-95.78-61.87-61.38-95.95-140.57-34.08-79.19-43.1-165.6-80.03 46.33-129.61 123.75-49.57 77.42-49.57 169.91 0 138.56 96.75 235.32 96.76 96.75 235.32 96.75Zm-14.17-319.56Z"
+          />
+        </svg>
+      </div>
     </nav>
 
     <!-- Home Section -->
@@ -525,6 +632,40 @@
         >
       </p>
     </section>
+
+    <!--Social Icon-->
+
+    <div class="social-bar">
+      <a href="https://www.facebook.com/md.shoriful.alam.robin" target="blank">
+        <img
+          src="image/facebook.svg"
+          class="mx-auto d-block img-fluid p-2"
+          width="40"
+          alt="social icon"
+        />
+      </a>
+
+      <a href="https://github.com/md-shoriful-alam-robin" target="blank">
+        <img
+          src="image/github.svg"
+          class="mx-auto d-block img-fluid p-2"
+          width="40"
+          alt="social icon"
+        />
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/md-shoriful-alam-robin/"
+        target="blank"
+      >
+        <img
+          src="image/linkedin.svg"
+          class="mx-auto d-block img-fluid p-2"
+          width="40"
+          alt="social icon"
+        />
+      </a>
+    </div>
 
     <!-- Services -->
     <section id="services">
@@ -615,11 +756,11 @@
       <!-- Social Media Links -->
       <div class="social-links">
         <a
-          href="https://www.facebook.com/md.shoriful.alam.robin"
+          href="https://bsky.app/profile/typical-robin.bsky.social"
           target="_blank"
-          aria-label="Facebook"
+          aria-label="BloomSky"
           rel="noopener noreferrer"
-          >Facebook</a
+          >BloomSky</a
         >
         <a
           href="https://x.com/RobinIdea"
@@ -636,11 +777,11 @@
           >Instagram</a
         >
         <a
-          href="https://www.linkedin.com/in/md-shoriful-alam-robin"
+          href="https://www.behance.net/mdshorifulalamrobin"
           target="_blank"
-          aria-label="LinkedIn"
+          aria-label="behance"
           rel="noopener noreferrer"
-          >LinkedIn</a
+          >Behance</a
         >
         <a
           href="https://review.shorifulrobin.me"
@@ -670,26 +811,38 @@
           contactForm.scrollIntoView({ behavior: "smooth" });
         }
       });
-      const toggleButton = document.getElementById("darkModeToggle");
 
-      toggleButton.addEventListener("click", () => {
-        document.body.classList.toggle("dark-mode");
-      });
-      if (localStorage.getItem("theme") === "dark") {
-        document.body.classList.add("dark-mode");
-        toggleBtn.textContent = "☀️";
+      //Dark Mood -- Important
+
+      const themeSwitch = document.querySelector(".theme-switch");
+
+      if (localStorage.getItem("darkMode") === "active") {
+        enableDarkMode();
+      } else {
+        disableDarkMode();
       }
-      toggleBtn.addEventListener("click", () => {
-        document.body.classList.toggle("dark-mode");
 
-        if (document.body.classList.contains("dark-mode")) {
-          toggleBtn.textContent = "☀️"; // Sun icon for Light Mode
-          localStorage.setItem("theme", "dark");
+      themeSwitch.addEventListener("click", () => {
+        if (localStorage.getItem("darkMode") === "active") {
+          disableDarkMode();
         } else {
-          toggleBtn.textContent = "🌙"; // Moon icon for Dark Mode
-          localStorage.setItem("theme", "light");
+          enableDarkMode();
         }
       });
+
+      function enableDarkMode() {
+        document.body.classList.add("darkMode");
+        localStorage.setItem("darkMode", "active");
+        document.querySelector(".moon-icon").style.display = "none";
+        document.querySelector(".sun-icon").style.display = "block";
+      }
+
+      function disableDarkMode() {
+        document.body.classList.remove("darkMode");
+        localStorage.removeItem("darkMode");
+        document.querySelector(".moon-icon").style.display = "block";
+        document.querySelector(".sun-icon").style.display = "none";
+      }
     </script>
   </body>
 </html>
