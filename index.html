@@ -36,6 +36,19 @@
         ]
       }
     </script>
+
+    <!--API  Important-->
+    <p id="time"></p>
+
+    <script>
+      function updateTime() {
+        const now = new Date();
+        document.getElementById("time").textContent = now.toLocaleString();
+      }
+      setInterval(updateTime, 1000); // প্রতি সেকেন্ডে আপডেট হবে
+      updateTime();
+    </script>
+
     <!-- JSON-LD Structured Data End -->
 
     <!-- Favicon -->
