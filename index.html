@@ -1,28 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <!-- Basic Meta Tags -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!-- SEO Meta Description -->
     <meta
       name="description"
       content="Md Shoriful Alam Robin – Expert Digital Marketing Consultant, Email Marketing Strategist, SEO Specialist, Web Designer & Developer with 2+ years of proven experience helping businesses grow online through smart marketing and creative web solutions."
     />
-
-    <!-- Title -->
     <title>
       MD SHORIFUL ALAM ROBIN - Digital Marketing, SEO, Email Marketing, Web
       Design & Development Expert | Remote Worldwide
     </title>
-    <!-- Font Awesome CDN -->
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
 
-    <!-- JSON-LD Structured Data Start -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -37,21 +31,16 @@
       }
     </script>
 
-    <!--API  Important-->
-    <p id="time"></p>
-
+    <p id="time" style="display: none"></p>
     <script>
       function updateTime() {
-        const now = new Date();
-        document.getElementById("time").textContent = now.toLocaleString();
+        document.getElementById("time").textContent =
+          new Date().toLocaleString();
       }
-      setInterval(updateTime, 1000); // প্রতি সেকেন্ডে আপডেট হবে
+      setInterval(updateTime, 1000);
       updateTime();
     </script>
 
-    <!-- JSON-LD Structured Data End -->
-
-    <!-- Favicon -->
     <link rel="icon" href="robin-favicon.png" type="image/png" />
     <link
       rel="icon"
@@ -59,7 +48,6 @@
       type="image/png"
     />
 
-    <!-- Open Graph for Social Sharing -->
     <meta
       property="og:title"
       content="MD SHORIFUL ALAM ROBIN - Digital Marketing, SEO, Email Marketing, Web Design & Development Expert | Remote Worldwide"
@@ -75,7 +63,6 @@
       content="https://shorifulrobin.me/portfolio-preview.jpg"
     />
 
-    <!-- Google Analytics -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-KT7GR4FZ8P"
@@ -88,8 +75,6 @@
       gtag("js", new Date());
       gtag("config", "G-KT7GR4FZ8P");
     </script>
-
-    <!-- HubSpot Tracking Script -->
     <script
       type="text/javascript"
       id="hs-script-loader"
@@ -98,62 +83,207 @@
       src="https://js-na2.hs-scripts.com/242914234.js"
     ></script>
 
-    <!-- CSS Styles -->
     <style>
-      /* Reset & base */
-      * {
+      /* ── CURSOR ── */
+      body {
+        cursor: none;
+      }
+      #cursor {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #00bfa6, #ec4899);
+        position: fixed;
+        pointer-events: none;
+        z-index: 999999;
+        transform: translate(-50%, -50%);
+        transition:
+          width 0.2s,
+          height 0.2s,
+          opacity 0.2s;
+      }
+      #cursor-ring {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 1.5px solid rgba(0, 191, 166, 0.5);
+        position: fixed;
+        pointer-events: none;
+        z-index: 999998;
+        transform: translate(-50%, -50%);
+        transition:
+          width 0.25s,
+          height 0.25s,
+          border-color 0.2s;
+      }
+
+      /* ── DARK / LIGHT TOKENS ── */
+      :root {
+        --bg: #ffffff;
+        --bg2: #f8f8f8;
+        --text: #222222;
+        --text2: #444444;
+        --text3: #666666;
+        --nav-bg: #0a2540;
+        --nav-text: #e0e6f2;
+        --nav-hover: #00aaff;
+        --section-bg: #ffffff;
+        --section-border: #e2e8f0;
+        --heading: #0a2540;
+        --accent: #00aaff;
+        --footer-bg: #0a2540;
+        --footer-text: #d1d9e6;
+        --input-border: #cccccc;
+        --input-bg: #ffffff;
+      }
+      body.darkMode {
+        --bg: #111111;
+        --bg2: #1a1a2e;
+        --text: #f0f0f0;
+        --text2: #cccccc;
+        --text3: #aaaaaa;
+        --nav-bg: #0d0d1a;
+        --nav-text: #ddd6fe;
+        --nav-hover: #c084fc;
+        --section-bg: #1a1a2e;
+        --section-border: #2d2d4a;
+        --heading: #ddd6fe;
+        --accent: #c084fc;
+        --footer-bg: #0d0d1a;
+        --footer-text: #c4b5fd;
+        --input-border: #3d3d5c;
+        --input-bg: #22223a;
+      }
+
+      /* ── RESET ── */
+      *,
+      *::before,
+      *::after {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
       }
+      html {
+        scroll-behavior: smooth;
+      }
       body {
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #fafafa;
-        color: #222;
-        scroll-behavior: smooth;
+        background-color: var(--bg);
+        color: var(--text);
         line-height: 1.6;
+        transition:
+          background-color 0.35s,
+          color 0.35s;
       }
-      /* Navigation */
+
+      /* ── NAV ── */
       nav {
-        background-color: #0a2540;
-        padding: 14px 0;
+        background-color: var(--nav-bg);
+        padding: 0 28px;
         position: sticky;
         top: 0;
         z-index: 10000;
-        text-align: center;
-        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-        font-weight: 600;
+        height: 58px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 3px 16px rgba(0, 0, 0, 0.25);
+        transition: background-color 0.35s;
       }
-      nav a {
-        color: #e0e6f2;
-        margin: 0 22px;
+      .nav-left {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .nav-left img {
+        height: 36px;
+        display: block;
+      }
+      .nav-center {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+      }
+      .nav-center a {
+        color: var(--nav-text);
+        padding: 6px 13px;
         font-weight: 600;
         text-decoration: none;
-        font-size: 1.05rem;
-        transition: color 0.3s ease;
+        font-size: 0.9rem;
+        border-radius: 7px;
+        transition: all 0.2s;
       }
-      nav a:hover,
-      nav a:focus {
-        color: #00aaff;
-        text-decoration: underline;
-        outline: none;
+      .nav-center a:hover {
+        color: var(--nav-hover);
+        background: rgba(255, 255, 255, 0.07);
       }
-      /* Section base */
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      /* GitHub icon in nav */
+      .nav-right .gh-link {
+        display: flex;
+        align-items: center;
+        color: var(--nav-text);
+        transition: color 0.2s;
+      }
+      .nav-right .gh-link:hover {
+        color: var(--nav-hover);
+      }
+      /* Dark/Light toggle button */
+      .theme-switch {
+        width: 36px;
+        height: 36px;
+        border-radius: 9px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.06);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: none;
+        transition: all 0.2s;
+      }
+      .theme-switch:hover {
+        background: rgba(255, 255, 255, 0.14);
+        border-color: var(--nav-hover);
+      }
+      .moon-icon {
+        display: block;
+        fill: #00bfa6;
+      }
+      .sun-icon {
+        display: none;
+        fill: #ffd700;
+      }
+      body.darkMode .sun-icon {
+        display: block;
+      }
+      body.darkMode .moon-icon {
+        display: none;
+      }
+
+      /* ── SECTIONS ── */
       section {
         padding: 70px 20px;
         max-width: 900px;
         margin: 30px auto;
-        background-color: #fff;
+        background-color: var(--section-bg);
         border-radius: 12px;
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-        border: 1px solid #e2e8f0;
+        border: 1px solid var(--section-border);
+        transition:
+          background-color 0.35s,
+          border-color 0.35s;
       }
       h1,
       h2 {
-        color: #0a2540;
+        color: var(--heading);
         margin-bottom: 18px;
         font-weight: 700;
         letter-spacing: 1px;
+        transition: color 0.35s;
       }
       h1 {
         font-size: 2.4rem;
@@ -161,7 +291,7 @@
       }
       h2 {
         font-size: 1.8rem;
-        border-bottom: 3px solid #00aaff;
+        border-bottom: 3px solid var(--accent);
         padding-bottom: 8px;
         max-width: fit-content;
         margin: 0 auto 30px auto;
@@ -170,10 +300,12 @@
         max-width: 700px;
         margin: 0 auto 22px auto;
         font-size: 1.15rem;
-        color: #444;
+        color: var(--text2);
         text-align: center;
+        transition: color 0.35s;
       }
-      /* Poster image */
+
+      /* ── POSTER ── */
       .poster img {
         display: block;
         max-width: 380px;
@@ -181,9 +313,10 @@
         margin: 0 auto 40px auto;
         border-radius: 20px;
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        border: 3px solid #00aaff;
+        border: 3px solid var(--accent);
       }
-      /* List styles */
+
+      /* ── LISTS ── */
       ul {
         padding-left: 0;
         list-style: none;
@@ -195,80 +328,61 @@
         margin-bottom: 16px;
         padding-left: 30px;
         position: relative;
-        color: #333;
+        color: var(--text2);
+        transition: color 0.35s;
       }
       ul li::before {
         content: "✔";
         position: absolute;
         left: 0;
-        color: #00aaff;
+        color: var(--accent);
         font-weight: 900;
         font-size: 1.2rem;
       }
-      /* Social links and buttons */
-      /* Container Alignment */
+
+      /* ── SOCIAL LINKS & BUTTONS ── */
       .social-links,
       .buttons {
         text-align: center;
         margin-top: 30px;
       }
-
-      /* Shared Button / Link Style */
       .social-links a,
       .buttons a {
         display: inline-block;
         margin: 10px 15px;
         padding: 12px 24px;
-        background: linear-gradient(
-          135deg,
-          #1e90ff,
-          #00bfff
-        ); /* subtle gradient */
+        background: linear-gradient(135deg, #1e90ff, #00bfff);
         color: #fff;
         border-radius: 10px;
         font-weight: 600;
         text-decoration: none;
         font-size: 1rem;
         min-width: 150px;
-        box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3); /* soft shadow */
-        transition: all 0.3s ease;
+        box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
+        transition: all 0.3s;
         user-select: none;
+        cursor: none;
       }
-
-      /* Hover / Focus Effects */
       .social-links a:hover,
-      .buttons a:hover,
-      .social-links a:focus,
-      .buttons a:focus {
+      .buttons a:hover {
         background: linear-gradient(135deg, #0073e6, #005bbb);
         box-shadow: 0 8px 20px rgba(0, 91, 187, 0.4);
-        transform: translateY(-2px); /* subtle lift */
-        outline: none;
+        transform: translateY(-2px);
       }
-
-      /* Individual Social Links Style */
       .social-links a {
         margin: 8px 10px;
         padding: 10px 16px;
         border-radius: 8px;
-        background-color: #1c7ed6; /* subtle primary color */
-        box-shadow: 0 4px 10px rgba(28, 126, 214, 0.2);
+        background-color: #1c7ed6;
         font-size: 0.95rem;
       }
-
-      /* Social Link Hover */
       .social-links a:hover {
         background-color: #1864ab;
-        box-shadow: 0 6px 14px rgba(24, 100, 171, 0.3);
       }
-
-      /* Optional: Add Icon inside link */
       .social-links a i {
         margin-right: 8px;
         vertical-align: middle;
       }
-
-      /* Optional: Buttons slightly different style for professional look */
       .buttons a {
         font-weight: 700;
         padding: 12px 28px;
@@ -276,31 +390,36 @@
         border-radius: 12px;
       }
 
-      /* Contact links styling */
+      /* BTN REVIEW */
+      .social-links a.btn-review,
+      .buttons a.btn-review {
+        background: linear-gradient(135deg, #ff6b6b, #302424);
+        color: #fff;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 16px;
+        letter-spacing: 0.5px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s;
+      }
+      .social-links a.btn-review:hover {
+        background-color: #ff3b3b;
+      }
+
+      /* ── CONTACT LINKS ── */
       #contact p a {
-        color: #00aaff;
+        color: var(--accent);
         text-decoration: none;
         font-weight: 600;
-        transition: color 0.3s ease;
+        transition: color 0.3s;
       }
-      #contact p a:hover,
-      #contact p a:focus {
+      #contact p a:hover {
         color: #005f99;
         text-decoration: underline;
-        outline: none;
       }
-      /* Footer */
-      footer {
-        background-color: #0a2540;
-        color: #d1d9e6;
-        text-align: center;
-        padding: 22px 10px;
-        font-size: 1rem;
-        letter-spacing: 0.04em;
-        border-top: 2px solid #00aaff;
-        margin-top: 40px;
-      }
-      /* CTA Button */
+
+      /* ── CTA BUTTON ── */
       .cta-button {
         display: inline-block;
         background-color: #00bfa6;
@@ -309,58 +428,78 @@
         font-size: 18px;
         border-radius: 25px;
         text-decoration: none;
-        transition: background-color 0.3s ease;
-        cursor: pointer;
+        cursor: none;
         margin: 20px auto;
         text-align: center;
         box-shadow: 0 4px 12px rgba(0, 191, 166, 0.5);
-        user-select: none;
+        transition: background-color 0.3s;
         border: none;
+        user-select: none;
       }
-      .cta-button:hover,
-      .cta-button:focus {
+      .cta-button:hover {
         background-color: #ffd700;
         color: #000;
-        outline: none;
       }
-      /* Contact Form */
+
+      /* ── CONTACT FORM ── */
       #contactForm {
-        display: none;
         max-width: 420px;
         margin: 0 auto 40px auto;
-        background: #fff;
+        background: var(--section-bg);
         padding: 25px 30px;
         border-radius: 12px;
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-        border: 1px solid #e2e8f0;
+        border: 1px solid var(--section-border);
+        transition: background-color 0.35s;
       }
-      /* BTN REVIEW */
-      .social-links a.btn-review,
-      .buttons a.btn-review {
-        background: linear-gradient(
-          135deg,
-          #ff6b6b,
-          #302424
-        ); /* modern gradient */
-        color: #fff; /* text color */
-        padding: 12px 24px; /* slightly larger for modern feel */
-        border-radius: 8px; /* smoother rounded corners */
-        text-decoration: none; /* remove underline */
+      #contactForm label {
         font-weight: 600;
-        font-size: 16px;
-        letter-spacing: 0.5px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* soft shadow */
-        transition: all 0.3s ease; /* smooth hover */
-        display: inline-block;
+        margin-bottom: 6px;
+        display: block;
+        color: var(--heading);
+      }
+      #contactForm input,
+      #contactForm textarea {
+        width: 100%;
+        padding: 10px 14px;
+        margin-bottom: 18px;
+        border-radius: 8px;
+        border: 1px solid var(--input-border);
+        background: var(--input-bg);
+        color: var(--text);
+        font-size: 1rem;
+        font-family: inherit;
+        resize: vertical;
+        transition:
+          border-color 0.3s,
+          background 0.35s,
+          color 0.35s;
+      }
+      #contactForm input:focus,
+      #contactForm textarea:focus {
+        border-color: var(--accent);
+        outline: none;
+        box-shadow: 0 0 8px rgba(0, 170, 255, 0.4);
+      }
+      #contactForm button {
+        background-color: #00bfa6;
+        color: #fff;
+        border: none;
+        padding: 14px 28px;
+        font-size: 1.1rem;
+        border-radius: 25px;
+        cursor: none;
+        font-weight: 700;
+        box-shadow: 0 4px 12px rgba(0, 191, 166, 0.5);
+        transition: background-color 0.3s;
+        width: 100%;
+      }
+      #contactForm button:hover {
+        background-color: #ffd700;
+        color: #000;
       }
 
-      .social-links a.btn-review:hover,
-      .buttons a.btn-review:hover {
-        background-color: #ff3b3b; /* hover color */
-      }
-
-      /* <!--social Bar--> */
-
+      /* ── FLOATING SOCIAL BAR ── */
       .social-bar {
         position: fixed;
         top: 50%;
@@ -371,49 +510,9 @@
         gap: 12px;
         z-index: 100;
       }
-
       .social-bar li::before {
         content: none !important;
         display: none !important;
-      }
-
-      .social-linkbox ul li i {
-        transition: all 0.3s ease-in-out;
-      }
-      .fa-github {
-        color: #f4f4f4; /* GitHub dark gray */
-      }
-      .fa-github :hover {
-        transform: scale(1.5);
-      }
-
-      .fa-facebook {
-        color: #f7f7f7; /* Facebook blue */
-      }
-
-      .fa-facebook:hover {
-        color: #0a66c2;
-        transform: scale(1.5);
-        background-color: white;
-        border-radius: 50%;
-      }
-
-      .fa-whatsapp {
-        color: #f1f5f2; /* WhatsApp green */
-      }
-      .fa-whatsapp:hover {
-        color: #25d366;
-        transform: scale(1.5); /* icon boro hobe */
-      }
-
-      .fa-linkedin-in {
-        color: #f7f7f7; /* LinkedIn blue */
-      }
-      .fa-linkedin-in:hover {
-        color: #f7f7f7;
-        transform: scale(1.3);
-        background-color: #0a66c2;
-        border-radius: 10%;
       }
       .social-bar a {
         display: inline-flex;
@@ -422,172 +521,77 @@
         width: 45px;
         height: 45px;
         border-radius: 50%;
-        background: #222; /* dark background */
+        background: #222;
         color: #fff;
         font-size: 20px;
-        transition: all 0.3s ease;
+        transition: all 0.3s;
+        cursor: none;
+        text-decoration: none;
       }
-
       .social-bar a:hover {
         transform: scale(1.1);
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       }
-
-      #contactForm label {
-        font-weight: 600;
-        margin-bottom: 6px;
-        display: block;
-        color: #0a2540;
+      .fa-github {
+        color: #f4f4f4;
       }
-      #contactForm input,
-      #contactForm textarea {
-        width: 100%;
-        padding: 10px 14px;
-        margin-bottom: 18px;
-        border-radius: 8px;
-        border: 1px solid #ccc;
-        font-size: 1rem;
-        font-family: inherit;
-        resize: vertical;
-        transition: border-color 0.3s ease;
+      .fa-facebook {
+        color: #f7f7f7;
       }
-      #contactForm input:focus,
-      #contactForm textarea:focus {
-        border-color: #00aaff;
-        outline: none;
-        box-shadow: 0 0 8px #00aaffaa;
+      .fa-whatsapp {
+        color: #f1f5f2;
       }
-      #contactForm button {
-        background-color: #00bfa6;
-        color: #fff;
-        border: none;
-        padding: 14px 28px;
-        font-size: 1.1rem;
-        border-radius: 25px;
-        cursor: pointer;
-        font-weight: 700;
-        box-shadow: 0 4px 12px rgba(0, 191, 166, 0.5);
-        transition: background-color 0.3s ease;
-        width: 100%;
-      }
-      #contactForm button:hover,
-      #contactForm button:focus {
-        background-color: #ffd700;
-        color: #000;
-        outline: none;
-      }
-      body {
-        background-color: white;
-        color: black;
-        transition: background-color 0.3s ease, color 0.3s ease;
-        font-family: Arial, sans-serif;
-        background: var(--base-color);
-        color: var(--text-color);
+      .fa-linkedin-in {
+        color: #f7f7f7;
       }
 
-      /* Dark & Light Mood */
-
-      :root {
-        --base-color: #ffffff;
-        --text-color: #000000;
-        --primary-color: #3b25c1;
-        --accent-color: #2e1e94;
-        --base-variant: #f0f0f0;
-        --secondary-text: #e1e1e1;
-        --footer-color: #2e1e94;
-        --headingColor: #000000;
-      }
-
-      .header-area {
-        background-color: var(--secondary-color);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 50px;
-        box-shadow: var(--shadow-color);
-      }
-
-      .header-area .logo {
-        font-size: 50px;
-      }
-      .header-area .main-menu {
-        display: flex;
-        align-items: center;
-        gap: 30px;
-      }
-
-      .header-area .main-menu ul {
-        display: flex;
-        gap: 20px;
-        list-style: none;
-      }
-      .header-area .main-menu ul li a {
-        text-decoration: none;
-        color: var(--text-color);
-        padding: 10px 20px;
-      }
-
-      .header-area .main-menu ul li a:hover {
-        background: var(--secondary-text);
-        border-radius: 10px;
-      }
-
-      .theme-switch {
-        cursor: pointer;
-      }
-
-      .moon-icon {
-        display: block;
-        fill: #00bfa6;
-      }
-      .sun-icon {
-        display: none;
-        fill: #ffd700;
-      }
-      .darkMode .sun-icon {
-        display: block;
-        fill: #ffd700;
-      }
-      .darkMode .moon-icon {
-        display: none;
-        fill: #00bfa6;
-      }
-      .darkMode {
-        --base-color: #171717;
-        --text-color: #ffffff;
-        --primary-color: #3b25c1;
-        --accent-color: #2e1e94;
-        --base-variant: #000;
-        --shadow-color: rgba(248, 243, 243, 0.945) 0px 1px 2px 0px;
-        --footer-color: #2e1e94;
-        --headingColor: orange;
-      }
-
-      <!--Social New Edition-- > .social-login {
+      /* ── SOCIAL LOGIN ICONS ── */
+      .social-login {
         display: flex;
         justify-content: center;
         gap: 16px;
         margin-top: 20px;
       }
-
+      .social-login a {
+        cursor: none;
+      }
       .social-login i {
         font-size: 28px;
         color: #ccc;
-        cursor: pointer;
-        transition: transform 0.3s ease, color 0.3s ease;
+        transition:
+          transform 0.3s,
+          color 0.3s;
       }
-
       .social-login i:hover {
         transform: scale(1.2);
         color: #007bff;
       }
 
-      /* Responsive */
-      @media (max-width: 768px) {
-        nav a {
-          margin: 12px 10px;
-          font-size: 1rem;
+      /* ── FOOTER ── */
+      footer {
+        background-color: var(--footer-bg);
+        color: var(--footer-text);
+        text-align: center;
+        padding: 22px 10px;
+        font-size: 1rem;
+        letter-spacing: 0.04em;
+        border-top: 2px solid var(--accent);
+        margin-top: 40px;
+        transition:
+          background-color 0.35s,
+          color 0.35s;
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 860px) {
+        .nav-center {
+          display: none;
         }
+        nav {
+          padding: 0 16px;
+        }
+      }
+      @media (max-width: 768px) {
         section {
           padding: 50px 15px;
           margin: 20px auto;
@@ -607,9 +611,6 @@
         }
       }
       @media (max-width: 400px) {
-        nav a {
-          font-size: 0.95rem;
-        }
         h1 {
           font-size: 1.8rem;
         }
@@ -623,78 +624,132 @@
         .social-bar {
           display: none;
         }
+        body {
+          cursor: auto;
+        }
+        #cursor,
+        #cursor-ring {
+          display: none;
+        }
       }
     </style>
   </head>
+
   <body>
-    <!-- Navigation -->
+    <!-- ── CURSOR ── -->
+    <div id="cursor"></div>
+    <div id="cursor-ring"></div>
+
+    <!-- ── NAV ── -->
     <nav>
-      <a href="#home">
-        <img
-          src="logo.png"
-          alt="MD Shoriful Alam Robin Logo"
-          style="height: 40px; vertical-align: middle"
-        />
-      </a>
-      <a href="#home">Home</a>
-      <a href="#about">About Me</a>
-      <a href="#services">Services</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#testimonials">Testimonials</a>
-      <a href="#contact">Contact</a>
-
-      <!--Github Link Special-->
-      <a
-        href="https://github.com/md-shoriful-alam-robin"
-        target="_blank"
-        rel="noreferrer"
-        ><svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="lucide lucide-github-icon lucide-github text-gray-700 hover:text-brandColor dark:text-gray-300 transition-colors duration-300"
-        >
-          <path
-            d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
-          ></path>
-          <path d="M9 18c-4.51 2-5-2-7-2"></path></svg
-      ></a>
-
-      <!--Dark & Light Mood-->
-      <div class="theme-switch">
-        <svg
-          class="sun-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="30px"
-          viewBox="0 -960 960 960"
-          width="30px"
-          fill="#FFFF55"
-        >
-          <path
-            d="M442.12-763.72v-162.42h75.76v162.42h-75.76Zm264.92 109.73-52.95-52.95L768.7-822.75l53.29 53.81-114.95 114.95Zm56.68 211.87v-75.76h162.42v75.76H763.72ZM442.12-33.86v-162.42h75.76v162.42h-75.76ZM252.3-654.85 137.92-768.46l53.62-53.05L306.25-706.8l-53.95 51.95ZM769.04-137.6 654.09-253.3l51.95-51.95 116.37 112.14-53.37 55.51ZM33.86-442.12v-75.76h162.42v75.76H33.86Zm158.34 304.2-53.95-53.62L252.2-305.49l27.52 25.78 27.77 26.51L192.2-137.92Zm287.72-103.67q-99.36 0-168.84-69.56-69.49-69.56-69.49-168.93 0-99.36 69.56-168.84 69.56-69.49 168.93-69.49 99.36 0 168.84 69.56 69.49 69.56 69.49 168.93 0 99.36-69.56 168.84-69.56 69.49-168.93 69.49Zm.08-75.92q67.62 0 115.13-47.44 47.52-47.43 47.52-115.05t-47.52-115.13Q547.62-642.65 480-642.65t-115.05 47.52Q317.51-547.62 317.51-480t47.44 115.05q47.43 47.44 115.05 47.44ZM480-480Z"
+      <div class="nav-left">
+        <a href="#home">
+          <img
+            src="logo.png"
+            alt="MD Shoriful Alam Robin Logo"
+            onerror="this.style.display = 'none'"
           />
-        </svg>
+        </a>
+      </div>
 
-        <svg
-          class="moon-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="30px"
-          viewBox="0 -960 960 960"
-          width="30px"
-          fill="#00bfa6"
+      <div class="nav-center">
+        <a href="#home">Home</a>
+        <a href="#about">About Me</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="nav-right">
+        <!-- GitHub -->
+        <a
+          href="https://github.com/md-shoriful-alam-robin"
+          target="_blank"
+          rel="noreferrer"
+          class="gh-link"
         >
-          <path
-            d="M483.95-76.01q-84.78 0-159.01-32.32-74.22-32.31-129.26-87.35-55.04-55.04-87.35-129.26-32.32-74.23-32.32-159.01 0-148.51 95-261.41Q266-858.26 412.07-885.34q-16.32 99.13 12.04 194.44 28.36 95.3 99.76 166.61 71.08 71.31 166.34 99.5 95.25 28.19 194.81 13.2-26 145.97-139.28 240.77-113.28 94.81-261.79 94.81Zm.05-75.92q92.49 0 169.65-50.03Q730.8-252 778.23-332.35q-87.07-9.11-166.72-43.36-79.64-34.25-141.35-95.78-61.87-61.38-95.95-140.57-34.08-79.19-43.1-165.6-80.03 46.33-129.61 123.75-49.57 77.42-49.57 169.91 0 138.56 96.75 235.32 96.76 96.75 235.32 96.75Zm-14.17-319.56Z"
-          />
-        </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+            />
+            <path d="M9 18c-4.51 2-5-2-7-2" />
+          </svg>
+        </a>
+        <!-- Theme Toggle -->
+        <div
+          class="theme-switch"
+          id="themeSwitch"
+          role="button"
+          aria-label="Toggle dark mode"
+        >
+          <svg
+            class="sun-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="22px"
+            viewBox="0 -960 960 960"
+            width="22px"
+          >
+            <path
+              d="M442.12-763.72v-162.42h75.76v162.42h-75.76Zm264.92 109.73-52.95-52.95L768.7-822.75l53.29 53.81-114.95 114.95Zm56.68 211.87v-75.76h162.42v75.76H763.72ZM442.12-33.86v-162.42h75.76v162.42h-75.76ZM252.3-654.85 137.92-768.46l53.62-53.05L306.25-706.8l-53.95 51.95ZM769.04-137.6 654.09-253.3l51.95-51.95 116.37 112.14-53.37 55.51ZM33.86-442.12v-75.76h162.42v75.76H33.86Zm158.34 304.2-53.95-53.62L252.2-305.49l27.52 25.78 27.77 26.51L192.2-137.92Zm287.72-103.67q-99.36 0-168.84-69.56-69.49-69.56-69.49-168.93 0-99.36 69.56-168.84 69.56-69.49 168.93-69.49 99.36 0 168.84 69.56 69.49 69.56 69.49 168.93 0 99.36-69.56 168.84-69.56 69.49-168.93 69.49Zm.08-75.92q67.62 0 115.13-47.44 47.52-47.43 47.52-115.05t-47.52-115.13Q547.62-642.65 480-642.65t-115.05 47.52Q317.51-547.62 317.51-480t47.44 115.05q47.43 47.44 115.05 47.44ZM480-480Z"
+            />
+          </svg>
+          <svg
+            class="moon-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="22px"
+            viewBox="0 -960 960 960"
+            width="22px"
+          >
+            <path
+              d="M483.95-76.01q-84.78 0-159.01-32.32-74.22-32.31-129.26-87.35-55.04-55.04-87.35-129.26-32.32-74.23-32.32-159.01 0-148.51 95-261.41Q266-858.26 412.07-885.34q-16.32 99.13 12.04 194.44 28.36 95.3 99.76 166.61 71.08 71.31 166.34 99.5 95.25 28.19 194.81 13.2-26 145.97-139.28 240.77-113.28 94.81-261.79 94.81Zm.05-75.92q92.49 0 169.65-50.03Q730.8-252 778.23-332.35q-87.07-9.11-166.72-43.36-79.64-34.25-141.35-95.78-61.87-61.38-95.95-140.57-34.08-79.19-43.1-165.6-80.03 46.33-129.61 123.75-49.57 77.42-49.57 169.91 0 138.56 96.75 235.32 96.76 96.75 235.32 96.75Zm-14.17-319.56Z"
+            />
+          </svg>
+        </div>
       </div>
     </nav>
+
+    <!-- ── FLOATING SOCIAL BAR ── -->
+    <div class="social-bar">
+      <ul>
+        <li>
+          <a href="https://github.com/md-shoriful-alam-robin" target="_blank"
+            ><i class="fa-brands fa-github"></i
+          ></a>
+        </li>
+        <li>
+          <a
+            href="https://www.facebook.com/md.shoriful.alam.robin/"
+            target="_blank"
+            ><i class="fa-brands fa-facebook"></i
+          ></a>
+        </li>
+        <li>
+          <a
+            href="https://api.whatsapp.com/send?phone=8801710210006"
+            target="_blank"
+            ><i class="fa-brands fa-whatsapp"></i
+          ></a>
+        </li>
+        <li>
+          <a
+            href="https://www.linkedin.com/in/md-shoriful-alam-robin/"
+            target="_blank"
+            ><i class="fa-brands fa-linkedin-in"></i
+          ></a>
+        </li>
+      </ul>
+    </div>
 
     <!-- Home Section -->
     <section id="home">
@@ -731,17 +786,14 @@
         customers.
       </p>
       <p>
-        ✔️ Trusted by global clients<br />
-        ✔️ Remote service, available worldwide<br />
-        ✔️ Based in Sylhet, Bangladesh<br />
-        ✔️ Available 24/7
+        ✔️ Trusted by global clients<br />✔️ Remote service, available
+        worldwide<br />✔️ Based in Sylhet, Bangladesh<br />✔️ Available 24/7
       </p>
-      <p>Let’s work together and make your online presence stand out.</p>
+      <p>Let's work together and make your online presence stand out.</p>
       <p>
         📧 Email:
         <a href="mailto:contact@shorifulrobin.me">contact@shorifulrobin.me</a
-        ><br />
-        🌍 Website:
+        ><br />🌍 Website:
         <a
           href="https://shorifulrobin.me"
           target="_blank"
@@ -750,42 +802,6 @@
         >
       </p>
     </section>
-
-    <!--Social Icon-->
-
-    <div class="social-bar">
-      <ul>
-        <li>
-          <a href="https://github.com/md-shoriful-alam-robin" target="_blank">
-            <i class="fa-brands fa-github"></i>
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://www.facebook.com/md.shoriful.alam.robin/"
-            target="_blank"
-          >
-            <i class="fa-brands fa-facebook"></i>
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://api.whatsapp.com/send?phone=8801710210006"
-            target="_blank"
-          >
-            <i class="fa-brands fa-whatsapp"></i>
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://www.linkedin.com/in/md-shoriful-alam-robin/"
-            target="_blank"
-          >
-            <i class="fa-brands fa-linkedin-in"></i>
-          </a>
-        </li>
-      </ul>
-    </div>
 
     <!-- Services -->
     <section id="services">
@@ -814,14 +830,12 @@
     <section id="portfolio">
       <h2>Portfolio</h2>
       <p>Here are some of my recent projects showcasing my expertise.</p>
-      <!-- Add your portfolio items here -->
     </section>
 
     <!-- Testimonials -->
     <section id="testimonials">
       <h2>Testimonials</h2>
       <p>What my clients say about working with me.</p>
-      <!-- Add testimonials here -->
     </section>
 
     <!-- Contact -->
@@ -852,24 +866,19 @@
         action="/thank-you.html"
         data-netlify="true"
         netlify-honeypot="bot-field"
-        style="display: block"
+        style="display: none; margin-top: 20px"
       >
-        <!-- Honeypot field -->
         <p style="display: none">
           <label
-            >Don’t fill this out if you're human: <input name="bot-field"
+            >Don't fill this out if you're human: <input name="bot-field"
           /></label>
         </p>
-
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required />
-
         <label for="email">Email</label>
         <input type="email" id="email" name="email" required />
-
         <label for="message">Message</label>
         <textarea id="message" name="message" rows="5" required></textarea>
-
         <button type="submit">Send Message</button>
       </form>
 
@@ -878,28 +887,24 @@
         <a
           href="https://bsky.app/profile/typical-robin.bsky.social"
           target="_blank"
-          aria-label="BloomSky"
           rel="noopener noreferrer"
           >BloomSky</a
         >
         <a
           href="https://x.com/RobinIdea"
           target="_blank"
-          aria-label="X (formerly Twitter)"
           rel="noopener noreferrer"
           >X</a
         >
         <a
           href="https://www.instagram.com/md_shoriful_alam_robin"
           target="_blank"
-          aria-label="Instagram"
           rel="noopener noreferrer"
           >Instagram</a
         >
         <a
           href="https://www.behance.net/mdshorifulalamrobin"
           target="_blank"
-          aria-label="behance"
           rel="noopener noreferrer"
           >Behance</a
         >
@@ -910,7 +915,7 @@
           >Leave a Review</a
         >
       </div>
-      <!--New social Edition-->
+
       <div class="social-login">
         <a href="https://accounts.google.com" target="_blank"
           ><i class="fab fa-google"></i
@@ -925,7 +930,7 @@
           ><i class="fab fa-x-twitter"></i
         ></a>
         <a
-          href="https://www.linkedin.com/in/md-shoriful-alam-robin/s"
+          href="https://www.linkedin.com/in/md-shoriful-alam-robin/"
           target="_blank"
           ><i class="fab fa-linkedin"></i
         ></a>
@@ -935,57 +940,70 @@
       </div>
     </section>
 
-    <footer>&copy; 2025 MD SHORIFUL ALAM ROBIN. All rights reserved.</footer>
+    <footer>&copy; 2026 MD SHORIFUL ALAM ROBIN. All rights reserved.</footer>
 
     <script>
-      // Toggle contact form visibility
-      const toggleBtn = document.getElementById("toggleContactForm");
-      const contactForm = document.getElementById("contactForm");
-
-      toggleBtn.addEventListener("click", () => {
-        if (contactForm.style.display === "block") {
-          contactForm.style.display = "none";
-          toggleBtn.textContent = "Contact Me";
-          toggleBtn.setAttribute("aria-expanded", "false");
-        } else {
-          contactForm.style.display = "block";
-          toggleBtn.textContent = "Close Contact Form";
-          toggleBtn.setAttribute("aria-expanded", "true");
-          contactForm.scrollIntoView({ behavior: "smooth" });
-        }
+      // ── CURSOR ──
+      const cur = document.getElementById("cursor");
+      const ring = document.getElementById("cursor-ring");
+      let mx = 0,
+        my = 0,
+        rx = 0,
+        ry = 0;
+      document.addEventListener("mousemove", (e) => {
+        mx = e.clientX;
+        my = e.clientY;
+        cur.style.left = mx + "px";
+        cur.style.top = my + "px";
+      });
+      (function animRing() {
+        rx += (mx - rx) * 0.12;
+        ry += (my - ry) * 0.12;
+        ring.style.left = rx + "px";
+        ring.style.top = ry + "px";
+        requestAnimationFrame(animRing);
+      })();
+      document.querySelectorAll("a, button").forEach((el) => {
+        el.addEventListener("mouseenter", () => {
+          ring.style.width = "56px";
+          ring.style.height = "56px";
+          ring.style.borderColor = "rgba(0, 191, 166, 0.5)";
+        });
+        el.addEventListener("mouseleave", () => {
+          ring.style.width = "36px";
+          ring.style.height = "36px";
+          ring.style.borderColor = "rgba(0, 191, 166, 0.5)";
+        });
       });
 
-      //Dark Mood -- Important
-
-      const themeSwitch = document.querySelector(".theme-switch");
-
-      if (localStorage.getItem("darkMode") === "active") {
-        enableDarkMode();
-      } else {
-        disableDarkMode();
-      }
+      // ── DARK / LIGHT MODE ──
+      const themeSwitch = document.getElementById("themeSwitch");
+      if (localStorage.getItem("darkMode") === "active") enableDarkMode();
+      else disableDarkMode();
 
       themeSwitch.addEventListener("click", () => {
-        if (localStorage.getItem("darkMode") === "active") {
-          disableDarkMode();
-        } else {
-          enableDarkMode();
-        }
+        if (localStorage.getItem("darkMode") === "active") disableDarkMode();
+        else enableDarkMode();
       });
-
       function enableDarkMode() {
         document.body.classList.add("darkMode");
         localStorage.setItem("darkMode", "active");
-        document.querySelector(".moon-icon").style.display = "none";
-        document.querySelector(".sun-icon").style.display = "block";
       }
-
       function disableDarkMode() {
         document.body.classList.remove("darkMode");
         localStorage.removeItem("darkMode");
-        document.querySelector(".moon-icon").style.display = "block";
-        document.querySelector(".sun-icon").style.display = "none";
       }
+
+      // ── CONTACT FORM TOGGLE ──
+      const toggleBtn = document.getElementById("toggleContactForm");
+      const contactForm = document.getElementById("contactForm");
+      toggleBtn.addEventListener("click", () => {
+        const open = contactForm.style.display === "block";
+        contactForm.style.display = open ? "none" : "block";
+        toggleBtn.textContent = open ? "Contact Me" : "Close Contact Form";
+        toggleBtn.setAttribute("aria-expanded", String(!open));
+        if (!open) contactForm.scrollIntoView({ behavior: "smooth" });
+      });
     </script>
   </body>
 </html>
