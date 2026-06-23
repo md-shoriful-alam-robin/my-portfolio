@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Syne:wght@700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── BASE ── */
+:root {
+  --cursor-size: 10px;
+  --ring-size: 36px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  cursor: none;
+  background-color: #0B0F1A;
+  color: #F1F5F9;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.light {
+  background-color: #F8FAFC;
+  color: #0F172A;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #00D4B8, #7C3AED);
+  border-radius: 99px;
+}
+
+/* ── CURSOR ── */
+#cursor {
+  width: var(--cursor-size);
+  height: var(--cursor-size);
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00D4B8, #7C3AED);
+  position: fixed;
+  pointer-events: none;
+  z-index: 999999;
+  transform: translate(-50%, -50%);
+  transition: width 0.15s, height 0.15s;
+  mix-blend-mode: screen;
+}
+
+#cursor-ring {
+  width: var(--ring-size);
+  height: var(--ring-size);
+  border-radius: 50%;
+  border: 1.5px solid rgba(0, 212, 184, 0.45);
+  position: fixed;
+  pointer-events: none;
+  z-index: 999998;
+  transform: translate(-50%, -50%);
+  transition: width 0.25s ease, height 0.25s ease, border-color 0.2s;
+}
+
+#cursor.hovering { width: 18px; height: 18px; }
+#cursor-ring.hovering { width: 52px; height: 52px; border-color: rgba(124, 58, 237, 0.6); }
+
+/* ── GRID BG ── */
+.grid-bg {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M 40 0 L 0 0 0 40' fill='none' stroke='rgba(0,212,184,0.05)' stroke-width='1'/%3E%3C/svg%3E");
+}
+
+/* ── GLASS CARD ── */
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl;
+  }
+
+  .glass-light {
+    @apply bg-black/5 backdrop-blur-sm border border-black/10 rounded-2xl;
+  }
+
+  .teal-gradient {
+    background: linear-gradient(135deg, #00D4B8, #7C3AED);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .teal-border {
+    @apply border border-teal/30 hover:border-teal/70 transition-colors duration-300;
+  }
+
+  .section-label {
+    @apply font-mono text-teal text-xs tracking-[0.2em] uppercase mb-3 block;
+  }
+}
+
+/* ── SHIMMER ── */
+.shimmer-text {
+  background: linear-gradient(90deg, #00D4B8 0%, #7C3AED 40%, #00D4B8 80%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+  to { background-position: 200% center; }
+}
+
+/* ── SCAN LINE ── */
+.scan-line {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0,212,184,0.4), transparent);
+  animation: scan 4s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scan {
+  0% { top: 0; opacity: 0; }
+  5% { opacity: 1; }
+  95% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* ── REDUCED MOTION ── */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── LIGHT MODE OVERRIDES ── */
+.light #cursor { mix-blend-mode: multiply; }
+.light .glass { @apply bg-black/5 border-black/10; }
